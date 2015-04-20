@@ -3,7 +3,7 @@ from numpy import *
 
 
 def lecturaEscrituraImagen(name):   
-    img = imread(name+'.png',1)    
+    img = imread(name,1)    
     #imwrite(img,'salida/'+name+'.png')
     return img
 
@@ -14,7 +14,7 @@ def testLecturaEscrituraImagen():
     if(img==None):
         print('No hay imagen')
         return
-    imwrite('salida/'+name+'.png',img)        
+    imwrite('salida/'+name,img)        
     #imshow('DarthVader',img)    
     #waitKey(0)    
     
@@ -68,7 +68,7 @@ def calcularHistograma(img, tipo):
         for i in x:
             for j in y:
                 for k in range(3):
-                    L[ k*256 + img[i][j][0] ]+=1                            
+                    L[ k*256 + img[i][j][k] ]+=1                            
         return L
         # Detalle creo que la salida es BGR xD
 
@@ -82,7 +82,7 @@ def caracterizarImagenes( carpeta, cad ):
     M = []    
     
     while(true):
-        img = lecturaEscrituraImagen(carpeta+'/'+pos+'.png')   
+        img = lecturaEscrituraImagen(carpeta+'/'+pos+'.jpg')   
         if(  img==None):
             break
         
