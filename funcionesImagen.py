@@ -1,5 +1,6 @@
 from cv2  import *
 from numpy import *
+import glob
 
 
 def lecturaEscrituraImagen(name):   
@@ -77,18 +78,15 @@ def calcularHistograma(img, tipo):
 
 def caracterizarImagenes( carpeta, cad ):
 
-    pos =1
-
     M = []    
     
-    while(true):
-        img = lecturaEscrituraImagen(carpeta+'/'+pos+'.jpg')   
+    for name in glob.glob(carpeta+'/*.jpg'):
+        img = lecturaEscrituraImagen(name)   
         if(  img==None):
             break
         
         M.append( calcularHistograma(img,cad) )                              
-        savetxt('salida/'+carpeta+'.csv', M )
+    savetxt('salida/'+carpeta+'.csv', M )
 
-        pos +=1
 
 
