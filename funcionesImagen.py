@@ -55,7 +55,8 @@ def calcularHistograma(img, tipo):
         x,y = img.shape[:2]
         for i in x:
             for j in y:
-                L[ img[i][j][0] ]+=1                            
+                tonogris = (int)(img[i][j][0]*0.11 + img[i][j][1]*0.59 + img[i][j][2]*0.3)
+                L[ tonogris ]+=1                            
         return L
           
     elif(tipo=='RGB'):
