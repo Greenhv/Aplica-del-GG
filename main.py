@@ -1,0 +1,9 @@
+from funcionesImagen import *
+
+
+
+testLecturaEscrituraImagen()    
+
+
+
+

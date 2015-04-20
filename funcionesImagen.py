@@ -3,10 +3,21 @@ from numpy import *
 
 
 def lecturaEscrituraImagen(name):   
-    img = imread(name,1)    
-    imwrite(img,'salida/'+name)
+    img = imread(name+'.png',1)    
+    #imwrite(img,'salida/'+name+'.png')
     return img
 
+
+def testLecturaEscrituraImagen():
+    name = 'darthvader'        
+    img =  lecturaEscrituraImagen(name)
+    if(img==None):
+        print('No hay imagen')
+        return
+    imwrite('salida/'+name+'.png',img)        
+    #imshow('DarthVader',img)    
+    #waitKey(0)    
+    
 
 def modificacionPixeles(img):
     nuevo = img
