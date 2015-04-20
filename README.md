@@ -1,2 +1,1 @@
-# Aplica-del-GG
-Labs del Curso
+Aplica nos destruira a todos
