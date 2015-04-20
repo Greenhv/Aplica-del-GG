@@ -1,5 +1,5 @@
 from cv2  import *
-import numpy as np
+from numpy import *
 
 
 def lecturaEscrituraImagen(name):   
