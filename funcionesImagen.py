@@ -61,5 +61,22 @@ def calcularHistograma(img, tipo):
         # Detalle creo que la salida es BGR xD
 
 #Todo compila pero falta funciones test 
-          
+
+
+def caracterizarImagenes( carpeta, cad ):
+
+    pos =1
+
+    M = []    
+    
+    while(true):
+        img = lecturaEscrituraImagen(carpeta+'/'+pos+'.png')   
+        if(  img==None):
+            break
+        
+        M.append( calcularHistograma(img,cad) )                              
+        savetxt('salida/'+carpeta+'.csv', M )
+
+        pos +=1
+
 
