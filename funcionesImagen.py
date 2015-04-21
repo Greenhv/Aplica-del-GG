@@ -2,6 +2,7 @@ from cv2  import *
 from numpy import *
 import glob
 import os
+import csv
 
 
 def lecturaEscrituraImagen(name):   
@@ -94,20 +95,24 @@ def testHistogramaImagen(name,tipo):
 
 def caracterizarImagenes( carpeta, cad ):
 
-    M = []    
-    
-    for name in glob.glob(carpeta+'/*.jpg'):     
-        img = lecturaEscrituraImagen(name)    
-        M.append( calcularHistograma(img,cad) )
-        #M.append(carpeta)
-    
-        #print name
-
+    M = []   
+ 
     if not os.path.exists('salida'):
         os.makedirs('salida')
-    savetxt('salida/'+carpeta+'.csv', M,fmt='%d',delimiter=',' )
 
+    f = open('salida/'+carpeta+'.csv', 'wb')
+
+    for name in glob.glob(carpeta+'/*.jpg'):     
+        img = lecturaEscrituraImagen(name) 
+        L = calcularHistograma(img,cad)
+        #print L
+        L.append(carpeta)   
+        #M.append( L )
+        writer = csv.writer(f)
+        writer.writerow(L)
 
 def testCaracterizarImagenes(name,tipo):
 	caracterizarImagenes(name,tipo)
+
+
 
