@@ -84,7 +84,7 @@ def calcularHistograma(img, tipo):
                 for k in range(3):
                     L[ (2-k)*256 + img[i][j][k] ]+=1                            
         return L
-        # Detalle creo que la salida es BGR xD
+   
 
 def testHistogramaImagen(name,tipo):
 
@@ -94,8 +94,7 @@ def testHistogramaImagen(name,tipo):
 	print L
 
 def caracterizarImagenes( carpeta, cad ):
-
-    M = []   
+      
  
     if not os.path.exists('salida'):
         os.makedirs('salida')
@@ -104,9 +103,9 @@ def caracterizarImagenes( carpeta, cad ):
 
     for name in glob.glob(carpeta+'/*.jpg'):     
         img = lecturaEscrituraImagen(name) 
-        L = calcularHistograma(img,cad)
-        #print L
-        L.append(carpeta)   
+        L = calcularHistograma(img,cad)        
+        L.append(carpeta)
+        print L   
         #M.append( L )
         writer = csv.writer(f)
         writer.writerow(L)
